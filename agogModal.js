@@ -20,12 +20,9 @@
         selector: '[data-modal-target]',
         modalClass: "modal",
         closeClass: "modal-close",
-        callbackBefore: function () {
-            console.log("agogModal başlatışıyor")
-        },
-        callbackAfter: function () {
-            console.log("agogModal bitiriliyor.")
-        }
+        modalType: 1,
+        callbackBefore: function () {},
+        callbackAfter: function () {}
     };
 
 
@@ -87,6 +84,9 @@
         });
 
         function toggleModal(modalId, modalType) {
+            if(!modalType){
+                modalType = settings.modalType;
+            }
             const modal = document.getElementById(modalId);
 
             switch (parseInt(modalType)) {
